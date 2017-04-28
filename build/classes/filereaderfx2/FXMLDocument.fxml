@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="448.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="filereaderfx2.FXMLDocumentController">
+  <children>
+    <AnchorPane id="AnchorPane" fx:id="anchor" layoutX="0.0" layoutY="2.0">
+      <children>
+            <StackPane fx:id="stack1" layoutX="3.0" layoutY="28.0" prefHeight="391.0" prefWidth="492.0">
+               <children>
+                  <TextArea fx:id="txtArea" editable="false" prefHeight="380.0" prefWidth="477.0" />
+                  <ImageView fx:id="imageView1" fitHeight="370.0" fitWidth="483.0" pickOnBounds="true" preserveRatio="true" />
+                  <WebView fx:id="webView1" prefHeight="395.0" prefWidth="494.0" />
+               </children>
+            </StackPane>
+        <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="500.0">
+          <menus>
+            <Menu fx:id="s" mnemonicParsing="false" text="File">
+              <items>
+                        <Menu fx:id="menuFile" mnemonicParsing="false" text="Open">
+                          <items>
+                            <MenuItem id="menuTxt" fx:id="menuTxt" mnemonicParsing="false" onAction="#handleMenuTxt" text="Txt" />
+                              <MenuItem fx:id="menuUrl" mnemonicParsing="false" onAction="#handleMenuUrl" text="Url" />
+                              <MenuItem fx:id="menuImage" mnemonicParsing="false" onAction="#handleMenuImage" text="Image" />
+                              <MenuItem fx:id="menuVideo" mnemonicParsing="false" onAction="#handleMenuVideo" text="Video" />
+                              <MenuItem fx:id="menuAudio" mnemonicParsing="false" onAction="#handleMenuAudio" text="Audio" />
+                          </items>
+                        </Menu>
+                <MenuItem mnemonicParsing="false" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Delete" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </children>
+    </AnchorPane>
+    <Separator layoutY="418.0" opacity="0.62" prefHeight="17.0" prefWidth="500.0" />
+      <Label layoutY="426.0" prefHeight="17.0" prefWidth="446.0" text="Label" />
+  </children>
+</AnchorPane>

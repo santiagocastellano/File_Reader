@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="filereaderfx2.FXMLShowTxtController">
+   <children>
+      <StackPane fx:id="stack" layoutX="14.0" layoutY="14.0" prefHeight="257.0" prefWidth="573.0">
+         <children>
+            <Button fx:id="boton" mnemonicParsing="false" text="Button" />
+            <Label fx:id="labeleado" text="Label" />
+            <CheckBox fx:id="checkbox1" mnemonicParsing="false" text="CheckBox" />
+         </children>
+      </StackPane>
+      <Button fx:id="cambiar" layoutX="274.0" layoutY="302.0" mnemonicParsing="false" onAction="#initialize" text="Button" />
+   </children>
+</AnchorPane>
