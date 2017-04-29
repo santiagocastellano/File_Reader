@@ -51,6 +51,6 @@
       </children>
     </AnchorPane>
     <Separator layoutY="418.0" opacity="0.62" prefHeight="17.0" prefWidth="500.0" />
-      <Label layoutY="426.0" prefHeight="17.0" prefWidth="446.0" text="Label" />
+      <Label fx:id="lblPath" layoutY="426.0" prefHeight="17.0" prefWidth="446.0" text="Label" />
   </children>
 </AnchorPane>

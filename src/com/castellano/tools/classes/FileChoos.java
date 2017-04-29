@@ -33,7 +33,7 @@ public class FileChoos {
         this.filePath= fileChoos.showOpenDialog(this.context); 
         
    }
-
+//devuelvo el path del archivo
     public File getFilePath() {
         return filePath;
     }

@@ -58,6 +58,8 @@ public class FXMLDocumentController implements Initializable {
     private WebView webView1;
     @FXML
     private StackPane stack1;
+    @FXML
+   private Label lblPath;
 
     public void setProgramaPrincipal(FileReaderFX2 ProgramaPrincipal) {
         this.ProgramaPrincipal = ProgramaPrincipal;
@@ -84,13 +86,7 @@ public class FXMLDocumentController implements Initializable {
     private TextArea txtArea;
     private TitledPane paneInsertUrl;
    // private StackPane stack;
- /*  private File openFileChoos(ExtensionFilter filter){
-        FileChooser fileChoos=new FileChooser();
-        fileChoos.setTitle("Open file");
-        fileChoos.getExtensionFilters().addAll(filter);
-        File file= fileChoos.showOpenDialog(FileReaderFX2.stg); //ver si este parche esta bien y se peude acceder al stage de otra manera
-        return file;
-   }*/
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -115,7 +111,8 @@ public class FXMLDocumentController implements Initializable {
        //llamado a un filechooser que devuelve el path del seleccionado referenciado por el metodo getFilePath
        FileChoos fileChooser= new FileChoos(extension,stg);
        //apertura del archivo, devuelve el contenido de  un file mandandole el path
-       FileTransaction fileTransaction=new FileTransaction(fileChooser.getFilePath().toString());
+       String totalPath=fileChooser.getFilePath().toString();
+       FileTransaction fileTransaction=new FileTransaction(totalPath);
        //transformo lo que retorna la clase fileTransaction a string y lo mando al textarea
     
        txtArea.setText(fileTransaction.getStringFile());
@@ -123,27 +120,8 @@ public class FXMLDocumentController implements Initializable {
        //envio el id entero del nodo que quiero hacer aparecer en el tope, los otros se ocultan dentro del metodo putvisible
        int index= indexOfNode(txtArea);
        putVisible(index);
-       
-       // System.out.println(stack1.getChildren().indexOf(imageView1));
-      // txtArea.setText(fileChooser.getFilePath().toString());
-        
-        
-    /*    FileChooser fileChoos=new FileChooser();
-        fileChoos.setTitle("Open TXT file");
-        fileChoos.getExtensionFilters().addAll(
-         new ExtensionFilter("Text Files", "*.txt"),
-         new ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"),
-         new ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"),
-         new ExtensionFilter("Video Files", "*.avi","*.mpg"));
-       // FileChooser.ExtensionFilter filter= new FileChooser.ExtensionFilter("TXT files", "*.txt");
-       // fc.setSelectedExtensionFilter(filter);
-        File file= fileChoos.showOpenDialog(FileReaderFX2.stg); //ver si este parche esta bien y se peude acceder al stage de otra manera
-        */
-       // 
-        
-      /*  fc.setSelectedExtensionFilter(filter); filtro = new FileNameExtensionFilter("*.TXT", "txt", "*.LOG", "log",
-        "*.CSV","csv", "*.TEXT", "text", "*.INF", "inf", "*.DAT","dat", "*.HTM", "htm",
-        "*.HTML", "html","*.PHP","php", "*.COM", "com");*/
+       lblPath.setText(totalPath);
+      
     }
      
   /*  class ThreadURLLoad implements Runnable{
@@ -173,14 +151,13 @@ public class FXMLDocumentController implements Initializable {
     private void handleMenuUrl(ActionEvent event) {
        
        // new Thread(new ThreadURLLoad()).start();
-        System.out.println("url");
         TextInputDialog dialog = new TextInputDialog("http://www.oracle.com/products/index.html");
         dialog.setTitle("Enter URL");
        dialog.setContentText("Enter URL:");
 
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()){
-           // System.out.println("Your name: " + result.get());
+           
             WebEngine webEngine=webView1.getEngine();
             String url=result.get();
             if(!url.contains("http://")){
@@ -189,6 +166,7 @@ public class FXMLDocumentController implements Initializable {
             webEngine.load(url);
             int index= indexOfNode(webView1);
             putVisible(index);
+            lblPath.setText(url);
         }
 
         
@@ -203,20 +181,18 @@ public class FXMLDocumentController implements Initializable {
        FileChoos fileChooser= new FileChoos(extension,stg);
         try {
             //apertura del archivo, devuelve el contenido de  un file mandandole el path
-            ImageTransaction imageTransaction= new ImageTransaction(fileChooser.getFilePath().toString());
+            String totalPath=fileChooser.getFilePath().toString();
+            ImageTransaction imageTransaction= new ImageTransaction(totalPath);
             imageView1.setImage(imageTransaction.getImage());
             int index= indexOfNode(imageView1);
             putVisible(index);
-            //transformo lo que retorna la clase fileTransaction a string y lo mando al textarea
+            lblPath.setText(totalPath);
+           
         } catch (IOException ex) {
             System.out.println("failed to access");
           
         }
     
-       //txtArea.setText(fileTransaction.getStringFile());
-       
-       //envio el id entero del nodo que quiero hacer aparecer en el tope, los otros se ocultan dentro del metodo putvisible
-       
       
       
     }
